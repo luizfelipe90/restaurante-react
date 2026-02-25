@@ -1,0 +1,238 @@
+/* --- Reset e Base --- */
+:root {
+  --gold: #C5A059;
+  --dark-bg: #0a0a0a;
+  --card-bg: #141414;
+  --text-light: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- Header --- */
+.hero {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.hero h1 {
+  color: var(--gold);
+  letter-spacing: 4px;
+  margin: 10px 0;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* --- Navegação --- */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.tab-navigation button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-navigation button.active {
+  background: var(--gold);
+  color: black;
+  font-weight: bold;
+}
+
+/* --- Layout Principal --- */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Grid de Menu --- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.menu-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: transform 0.2s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.img-box {
+  width: 100%;
+  height: 180px;
+  background-color: #1a1a1a;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 20px;
+}
+
+.card-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #aaa;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  color: var(--gold);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-footer button {
+  background: var(--gold);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- Sidebar (Carrinho) --- */
+.checkout-sidebar {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  position: sticky;
+  top: 20px;
+  border: 1px solid #222;
+}
+
+.checkout-sidebar h2 {
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+  margin-top: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #222;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  background: #333;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.payment-select {
+  margin: 20px 0;
+}
+
+.payment-select select {
+  width: 100%;
+  background: #222;
+  color: white;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.finish-btn {
+  width: 100%;
+  background: #25d366; /* Cor do WhatsApp */
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* --- UI Helpers --- */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--gold);
+  color: black;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 1000;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
